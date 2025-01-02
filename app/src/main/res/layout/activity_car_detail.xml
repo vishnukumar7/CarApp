@@ -51,7 +51,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="48dp"
                     android:padding="5dp"
-                    android:visibility="gone"
                     android:id="@+id/edit"
                     android:src="@drawable/baseline_edit_24"
                     android:layout_height="48dp"/>
@@ -282,6 +281,7 @@
                 android:padding="15dp"
                 android:layout_margin="20dp"
                 android:id="@+id/submit"
+                android:visibility="gone"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"/>
