@@ -12,4 +12,10 @@
     <string name="model">Model</string>
     <string name="car_details">Car Detail View</string>
     <string name="car_edit_mode">Edit Mode</string>
+    <string name="year">Year</string>
+    <string name="color">Color</string>
+    <string name="transmission">Transmission</string>
+    <string name="engine">Engine</string>
+    <string name="horse_power">Horse Power</string>
+    <string name="features">Features</string>
 </resources>
