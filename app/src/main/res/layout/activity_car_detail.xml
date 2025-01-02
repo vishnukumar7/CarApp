@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.app.carsapp.model.CarResponse" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.CarDetailActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:context=".ui.CarDetailActivity">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:orientation="horizontal"
+                android:id="@+id/toolLay"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="48dp"
+                    android:padding="5dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/back"
+                    android:src="@drawable/baseline_arrow_back_24"
+                    android:layout_height="48dp"/>
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/car_details"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/title"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    app:layout_constraintEnd_toStartOf="@id/edit"
+                  app:layout_constraintStart_toEndOf="@id/back"
+                    android:layout_height="50dp"/>
+                <ImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="48dp"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:id="@+id/edit"
+                    android:src="@drawable/baseline_edit_24"
+                    android:layout_height="48dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                app:layout_constraintTop_toBottomOf="@id/toolLay"
+                android:id="@+id/carImage"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
+            <TextView
+                android:id="@+id/carMakeTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carImage"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/make"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carMake"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{data.make}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carImage"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/carModelTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carMakeTitle"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/model"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carModel"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carMakeTitle"
+                android:layout_width="0dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{data.model}"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/carYearTitle"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Year"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carModelTitle"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carYear"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(data.year)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carModelTitle"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/carColorTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carYearTitle"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Color"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carColor"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{data.color}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carYearTitle"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/carTransmissionTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carColorTitle"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Transmission"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carTransmission"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{data.transmission}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carColorTitle"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/carEngineTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carTransmissionTitle"
+                android:layout_width="0dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Engine"
+                android:padding="10dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carEngine"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carTransmissionTitle"
+                android:layout_width="0dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{data.engine}"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/carHorsePowerTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carEngineTitle"
+                android:layout_width="0dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Horse Power"
+                android:padding="10dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:enabled="false"
+                android:background="@null"
+                android:id="@+id/carHorsePower"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(data.horsepower)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carEngineTitle"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/carHorsePowerTitle"
+                android:background="@color/cardview_dark_background"
+                android:layout_height="0.5dp"/>
+
+            <TextView
+                android:id="@+id/featuresTitle"
+                android:text="Features"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/carHorsePowerTitle"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/features"
+                android:background="@null"
+                android:textSize="18sp"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/featuresTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                app:layout_constraintTop_toBottomOf="@id/features"
+                android:layout_width="match_parent"
+                android:text="Submit"
+                android:padding="15dp"
+                android:layout_margin="20dp"
+                android:id="@+id/submit"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
